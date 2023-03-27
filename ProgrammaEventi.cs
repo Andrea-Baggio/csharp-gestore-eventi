@@ -8,7 +8,6 @@
         Titolo = titolo;
         ListaEventi = list;
     }
-
     public void AggiungiEvento(Evento evento) => ListaEventi.Add(evento);
 
     //public Documento? CercaPerCodice(string codice) => ListaDocumenti.FirstOrDefault(documento => documento.Codice == codice);
