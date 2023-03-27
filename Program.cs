@@ -67,4 +67,9 @@
         }
         PostiPrenotati -= disdicimento;
     }
+
+    public override string ToString()
+    {
+        return $"Evento: {Data.ToString("dd/MM/yyyy")} - {Titolo}";
+    }
 }
