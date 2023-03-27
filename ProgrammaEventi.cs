@@ -27,8 +27,23 @@
     {
         foreach (var evento in ListaEventi)
         {
-            Console.WriteLine($"Titolo: {evento.Titolo} | Data: {evento.Data}");
+            Console.WriteLine(evento);
         }
     }
+    public void ContaElementi()
+    {
+        int numElementi = ListaEventi.Count();
+        Console.WriteLine($"Questa lista contiene { numElementi } elementi");
+    }
 
+    public void SvuotaLista() => ListaEventi.Clear();
+
+    public void StampaElementi(List<Evento> ListaEventi)
+    {
+        foreach (var evento in ListaEventi)
+        {
+            Console.WriteLine($"Il nome del programma è: {AppDomain.CurrentDomain.FriendlyName}");
+            Console.WriteLine($"Data: { evento.Data} - Titolo: {evento.Titolo}");
+        }
+    }
 }
