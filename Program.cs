@@ -1,16 +1,15 @@
 ﻿public class Evento
 {
-    private string _titolo;
-    private DateTime _data;
-    private int _capienzaMassima;
-    public int PostiPrenotati { get; }
+    public string _titolo;
+    public DateTime _data;
+    public int _capienzaMassima;
+    public int? PostiPrenotati { get; }
 
-    public Evento(string titolo, DateTime data, int capienzaMassima, int postiPrenotati)
+    public Evento(string titolo, DateTime data, int capienzaMassima)
     {
         Titolo = titolo;
         Data = data;
         CapienzaMassima = capienzaMassima;
-        PostiPrenotati = postiPrenotati;
     }
 
     public string Titolo
@@ -30,7 +29,7 @@
         get { return _data; }
         set
         {
-            if (value < DateTime.Now)
+            if (value > DateTime.Now)
             {
                 Console.WriteLine("La data deve essere futura.");
             }
