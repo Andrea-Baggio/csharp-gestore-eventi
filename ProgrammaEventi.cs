@@ -10,5 +10,16 @@
     }
     public void AggiungiEvento(Evento evento) => ListaEventi.Add(evento);
 
-    //public Documento? CercaPerCodice(string codice) => ListaDocumenti.FirstOrDefault(documento => documento.Codice == codice);
+    public List<Evento> ListaEventiData(DateTime data)
+    {
+        List<Evento> eventiData = new List<Evento>();
+        foreach (Evento evento in ListaEventi)
+        {
+            if (evento.Data == data)
+            {
+                eventiData.Add(evento);
+            }
+        }
+        return eventiData;
+    }
 }
