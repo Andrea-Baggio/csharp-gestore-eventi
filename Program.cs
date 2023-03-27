@@ -1,7 +1,10 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-public class Evento
+﻿public class Evento
 {
+    private string _titolo;
+    private DateTime _data;
+    private int _capienzaMassima;
+    public int PostiPrenotati { get; }
+
     public Evento(string titolo, DateTime data, int capienzaMassima, int postiPrenotati)
     {
         Titolo = titolo;
@@ -12,39 +15,38 @@ public class Evento
 
     public string Titolo
     {
-        get { return Titolo; }
+        get { return _titolo; }
         set
         {
             if (string.IsNullOrEmpty(value))
             {
                 Console.WriteLine("Il titolo non può essere vuoto.");
             }
-            Titolo = value;
+            _titolo = value;
         }
     }
     public DateTime Data
     {
-        get { return Data; }
+        get { return _data; }
         set
         {
             if (value < DateTime.Now)
             {
                 Console.WriteLine("La data deve essere futura.");
             }
-            Data = value;
+            _data = value;
         }
     }
     public int CapienzaMassima
     {
-        get { return CapienzaMassima; }
+        get { return _capienzaMassima; }
         set
         {
             if (value <= 0)
             {
                 Console.WriteLine("La capienza massima deve essere un numero positivo.");
             }
-            CapienzaMassima = value;
+            _capienzaMassima = value;
         }
     }
-    public int PostiPrenotati { get;}
 }
