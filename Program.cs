@@ -14,13 +14,40 @@ int inputPrenotazioni = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine();
 
+Console.WriteLine($"Numero di posti prenotati: {inputPrenotazioni} ");
 
 int postiDisponibili = Math.Max(0, inputCapacita - inputPrenotazioni);
 Console.WriteLine($"Numero di posti disponibili: {postiDisponibili}");
 
 
+bool continua = true;
 
+while (continua)
+{
+    Console.Write("Vuoi disdire delle prenotazioni (sì/no)? ");
+    string risposta = Console.ReadLine().ToLower();
+
+    if (risposta == "no")
+    {
+        continua = false;
+        Console.WriteLine($"Numero di posti disponibili: {postiDisponibili}");
+    }
+    else if (risposta == "sì" || risposta == "si")
+    {
+        Console.Write("Quante prenotazioni desideri disdire? ");
+        int prenotazioniDaCancellare = Convert.ToInt32(Console.ReadLine());
+        postiDisponibili = Math.Max(0, postiDisponibili + prenotazioniDaCancellare);
+        Console.WriteLine($"Numero di posti disponibili: {postiDisponibili}");
+    }
+    else
+    {
+        Console.WriteLine("Risposta non valida.");
+    }
+}
+
+Console.WriteLine("La tua prenotazione è andata a buon fine. Il programma è terminato.");
 
 
 Evento nuovoEvento = new Evento(inputTitolo, inputData, inputCapacita);
 Console.WriteLine(nuovoEvento);
+Console.WriteLine($"Numero di posti rimasti disponibili: {postiDisponibili}");
