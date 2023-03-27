@@ -3,13 +3,14 @@
     public string _titolo;
     public DateTime _data;
     public int _capienzaMassima;
-    public int? PostiPrenotati { get; }
+    public int PostiPrenotati { get; }
 
     public Evento(string titolo, DateTime data, int capienzaMassima)
     {
         Titolo = titolo;
         Data = data;
         CapienzaMassima = capienzaMassima;
+        PostiPrenotati = 0;
     }
 
     public string Titolo
@@ -47,5 +48,14 @@
             }
             _capienzaMassima = value;
         }
+    }
+
+    public void PrenotaPosti(int prenotazione)
+    {
+        if (Data < DateTime.Now || PostiPrenotati == CapienzaMassima)
+        {
+            Console.WriteLine("Impossibile prenotare i posti richiesti.");
+        }
+        PostiPrenotati += prenotazione;
     }
 }
