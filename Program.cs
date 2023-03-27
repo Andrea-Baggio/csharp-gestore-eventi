@@ -9,8 +9,18 @@ DateTime inputData = Convert.ToDateTime(Console.ReadLine());
 Console.Write("Inserire il numero di posti presenti nel luogo in cui si svolgerà l'evento: ");
 int inputCapacita = Convert.ToInt32(Console.ReadLine());
 
+Console.Write("Quanti posti desideri prenotare? ");
+int inputPrenotazioni = Convert.ToInt32(Console.ReadLine());
 
-Evento mioEvento = new Evento(inputTitolo, inputData, inputCapacita);
-Console.WriteLine(mioEvento);
+Console.WriteLine();
 
 
+int postiDisponibili = Math.Max(0, inputCapacita - inputPrenotazioni);
+Console.WriteLine($"Numero di posti disponibili: {postiDisponibili}");
+
+
+
+
+
+Evento nuovoEvento = new Evento(inputTitolo, inputData, inputCapacita);
+Console.WriteLine(nuovoEvento);
