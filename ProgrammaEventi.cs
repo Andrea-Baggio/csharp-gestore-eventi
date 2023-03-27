@@ -22,4 +22,13 @@
         }
         return eventiData;
     }
+
+    public static void StampaLista(List<Evento> ListaEventi)
+    {
+        foreach (var evento in ListaEventi)
+        {
+            Console.WriteLine($"Titolo: {evento.Titolo} | Data: {evento.Data}");
+        }
+    }
+
 }
