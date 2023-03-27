@@ -3,7 +3,7 @@
     public string _titolo;
     public DateTime _data;
     public int _capienzaMassima;
-    public int PostiPrenotati { get; }
+    public int PostiPrenotati { get; private set; }
 
     public Evento(string titolo, DateTime data, int capienzaMassima)
     {
@@ -40,7 +40,7 @@
     public int CapienzaMassima
     {
         get { return _capienzaMassima; }
-        set
+        private set
         {
             if (value <= 0)
             {
@@ -57,5 +57,14 @@
             Console.WriteLine("Impossibile prenotare i posti richiesti.");
         }
         PostiPrenotati += prenotazione;
+    }
+
+    public void DisdiciPosti(int disdicimento)
+    {
+        if (Data < DateTime.Now || PostiPrenotati <= 0)
+        {
+            Console.WriteLine("Impossibile disdire i posti richiesti.");
+        }
+        PostiPrenotati -= disdicimento;
     }
 }
